@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-manrope: 'Manrope', system-ui, sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-sans text-slate-800 bg-white antialiased;
+  }
+  h1, h2, h3, h4, h5 { @apply font-display; }
+  a { @apply no-underline; }
+}
+
+@layer components {
+  .section-label {
+    @apply font-sans text-[0.7rem] font-bold tracking-[0.2em] uppercase text-navy-500 block;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-navy-700 text-white px-7 py-3
+           font-sans font-medium text-sm tracking-wide rounded-sm cursor-pointer border-0
+           transition-all duration-300 ease-out-expo
+           hover:bg-navy-600 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-navy-700/25;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-navy-700 text-navy-700
+           px-7 py-3 font-sans font-medium text-sm tracking-wide rounded-sm
+           bg-transparent cursor-pointer transition-all duration-300 ease-out-expo
+           hover:bg-navy-700 hover:text-white;
+  }
+
+  .btn-ghost-white {
+    @apply inline-flex items-center gap-2 border border-white/25 text-white
+           px-7 py-3 font-sans font-medium text-sm tracking-wide rounded-sm
+           bg-transparent cursor-pointer transition-all duration-300
+           hover:bg-white/10;
+  }
+
+  .input-field {
+    @apply w-full border border-slate-200 px-4 py-3 font-sans text-sm text-slate-800
+           bg-white outline-none rounded-sm transition-all duration-200
+           focus:border-navy-600 focus:ring-2 focus:ring-navy-600/10 placeholder:text-slate-400;
+  }
+
+  .field-label {
+    @apply block font-sans text-[0.72rem] font-semibold text-slate-600
+           mb-1.5 tracking-[0.08em] uppercase;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-900/8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Typing dots for chat */
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-5px); }
+}
+.typing-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-slate-400 inline-block;
+  animation: typingDot 1.4s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
