@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FadeUp, SlideIn } from '@/components/AnimatedSection'
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name:'', email:'', subject:'', message:'' })
+  const [form, setForm] = useState({ name:'', email:'', phone:'', subject:'', message:'' })
   const [status, setStatus] = useState('idle')
 
   const onSubmit = async e => {
@@ -103,6 +103,8 @@ export default function ContactPage() {
                   <>
                     <h3 className="font-display text-xl font-semibold text-navy-900 mb-7">Send a Message</h3>
                     <form onSubmit={onSubmit} className="flex flex-col gap-5">
+
+                      {/* Name + Email */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                           <label className="field-label">Full Name *</label>
@@ -115,6 +117,24 @@ export default function ContactPage() {
                                  placeholder="john@example.com" className="input-field" />
                         </div>
                       </div>
+
+                      {/* Phone */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                          <label className="field-label">
+                            Phone <span className="font-normal normal-case text-slate-400">(optional)</span>
+                          </label>
+                          <input
+                            type="tel"
+                            value={form.phone}
+                            onChange={e=>setForm({...form,phone:e.target.value})}
+                            placeholder="+1 (555) 000-0000"
+                            className="input-field"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Subject */}
                       <div>
                         <label className="field-label">Subject *</label>
                         <select required value={form.subject} onChange={e=>setForm({...form,subject:e.target.value})} className="input-field bg-white">
@@ -127,17 +147,21 @@ export default function ContactPage() {
                           <option>Digital Asset Investigation</option>
                         </select>
                       </div>
+
+                      {/* Message */}
                       <div>
                         <label className="field-label">Message *</label>
                         <textarea required rows={5} value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
                                   placeholder="Describe your situation or inquiry…"
                                   className="input-field resize-y" style={{ fontFamily:'inherit' }} />
                       </div>
+
                       {status === 'error' && (
                         <p className="text-sm text-red-500 font-sans bg-red-50 border border-red-100 px-4 py-3 rounded-sm">
                           Something went wrong. Please email chaintrace1@gmail.com directly.
                         </p>
                       )}
+
                       <motion.button
                         type="submit"
                         disabled={status === 'loading'}
@@ -151,6 +175,7 @@ export default function ContactPage() {
                           <>Send Message <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></>
                         )}
                       </motion.button>
+
                     </form>
                   </>
                 )}

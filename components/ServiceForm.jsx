@@ -66,6 +66,22 @@ export default function ServiceForm({ serviceName, fields }) {
         </div>
       </div>
 
+      {/* Always: phone number */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label className="field-label">
+            Phone Number <span className="text-slate-400 normal-case font-normal">(optional)</span>
+          </label>
+          <input
+            name="phone"
+            type="tel"
+            onChange={handle}
+            placeholder="+1 (555) 000-0000"
+            className="input-field"
+          />
+        </div>
+      </div>
+
       {/* Service-specific fields rendered in a 2-col grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {fields.map(f => <Field key={f.name} field={f} onChange={handle} />)}
