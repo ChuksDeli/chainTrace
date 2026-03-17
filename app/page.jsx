@@ -2,6 +2,10 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FadeUp, FadeIn, SlideIn, Stagger, StaggerItem, ScaleIn } from '@/components/AnimatedSection'
+import { FaSearch } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import { FaBalanceScale } from "react-icons/fa";
+import { TbWorld } from "react-icons/tb";
 import Image from 'next/image'
 
 const stats = [
@@ -24,10 +28,10 @@ const services = [
 ]
 
 const trust = [
-  { icon: '🔍', title: 'Forensic-Grade Analysis', desc: 'We use Chainalysis and proprietary tooling to build airtight, court-ready evidence chains.' },
-  { icon: '🔒', title: 'Strict Confidentiality', desc: 'Every case is handled under NDA with end-to-end encryption protecting all client data.' },
-  { icon: '⚖️', title: 'Legal Compliance', desc: 'Our reports are court-admissible. We collaborate with law enforcement and specialist legal counsel.' },
-  { icon: '🌐', title: 'Global Network', desc: 'Exchange partnerships and regulatory contacts across 40+ countries for cross-border recovery.' },
+  { icon: <FaSearch />, title: 'Forensic-Grade Analysis', desc: 'We use Chainalysis and proprietary tooling to build airtight, court-ready evidence chains.' },
+  { icon: <FaLock />, title: 'Strict Confidentiality', desc: 'Every case is handled under NDA with end-to-end encryption protecting all client data.' },
+  { icon: <FaBalanceScale />, title: 'Legal Compliance', desc: 'Our reports are court-admissible. We collaborate with law enforcement and specialist legal counsel.' },
+  { icon: <TbWorld />, title: 'Global Network', desc: 'Exchange partnerships and regulatory contacts across 40+ countries for cross-border recovery.' },
 ]
 
 export default function HomePage() {

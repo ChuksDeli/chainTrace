@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { FaLock } from "react-icons/fa";
 
 export default function ServiceForm({ serviceName, fields }) {
   const [values, setValues] = useState({})
@@ -135,8 +136,9 @@ export default function ServiceForm({ serviceName, fields }) {
         )}
       </motion.button>
 
-      <p className="text-center font-sans text-xs text-slate-400">
-        🔒 End-to-end encrypted · Strict confidentiality · NDA protected
+      <p className="text-center font-sans text-xs flex items-center justify-center gap-3 text-slate-400">
+        <FaLock />
+           <p>End-to-end encrypted · Strict confidentiality · NDA protected</p>
       </p>
     </form>
   )

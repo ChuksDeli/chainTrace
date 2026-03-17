@@ -2,6 +2,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FadeUp, SlideIn } from '@/components/AnimatedSection'
+import { IoIosMail } from "react-icons/io";
+import { FaLock } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name:'', email:'', phone:'', subject:'', message:'' })
@@ -53,8 +56,8 @@ export default function ContactPage() {
 
                 <div className="flex flex-col divide-y divide-slate-100">
                   {[
-                    { icon:'📧', label:'Email', value:'chaintrace1@gmail.com', sub:'Response within 4 hours', link:'mailto:chaintrace1@gmail.com' },
-                    { icon:'💬', label:'Live Chat', value:'Available 24 / 7', sub:'Use the chat widget below', link:null },
+                    { icon: <IoIosMail />, label:'Email', value:'chaintrace1@gmail.com', sub:'Response within 4 hours', link:'mailto:chaintrace1@gmail.com' },
+                    { icon: <AiFillMessage />, label:'Live Chat', value:'Available 24 / 7', sub:'Use the chat widget below', link:null },
                   ].map(item => (
                     <div key={item.label} className="flex gap-4 py-5">
                       <span className="text-2xl flex-shrink-0">{item.icon}</span>
@@ -71,7 +74,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="mt-8 bg-navy-50 border border-navy-100 p-5">
-                  <p className="font-sans text-sm font-semibold text-navy-800 mb-2">🔒 Confidentiality Guarantee</p>
+                  <div className="font-sans text-sm font-semibold text-navy-800 mb-2"> <FaLock /> <p>
+                    Confidentiality Guarantee
+                    </p></div>
                   <p className="font-sans text-xs text-slate-500 leading-relaxed">
                     All communications are encrypted and handled under strict NDA. Your identity
                     and case details are never shared without your explicit consent.
